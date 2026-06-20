@@ -96,11 +96,21 @@ a:hover {
 }
 
 .site-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-size: 0.95rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text);
   white-space: nowrap;
+}
+
+.marine-mark {
+  width: 72px;
+  height: auto;
+  color: var(--text);
+  flex-shrink: 0;
 }
 
 .nav-links {
