@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#bfdad9"/><stop offset="1" stop-color="#f4ddbb"/></linearGradient></defs>
+  <rect width="1200" height="900" fill="#e4ded4"/>
+  <rect x="145" y="74" width="910" height="670" rx="190" fill="#f8f5e9"/><rect x="192" y="121" width="816" height="576" rx="145" fill="url(#sky)"/>
+  <circle cx="775" cy="283" r="92" fill="#f7e8c4"/>
+  <path d="M192 547c169-183 275-160 408-59 115-126 240-115 408-19v228H192Z" fill="#89aca5"/><path d="M192 606c175-86 341-13 496-34 102-14 213-88 320-73v198H192Z" fill="#547f7b"/><path d="M192 651c154-17 254 69 440 19 149-41 261-2 376-42v69H192Z" fill="#426b6b"/>
+  <path d="M598 121v576" stroke="#f8f5e9" stroke-width="28"/><path d="M145 437h910" stroke="#f8f5e9" stroke-width="26"/>
+  <path d="M144 752h912" stroke="#b7b8aa" stroke-width="6"/><text x="161" y="835" font-family="Georgia,serif" font-size="27" letter-spacing="8" fill="#55716c">SOMEWHERE ON THE WAY</text>
+</svg>

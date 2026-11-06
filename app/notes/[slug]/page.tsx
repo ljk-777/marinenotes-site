@@ -1,8 +1,12 @@
-import Footer from "@/components/Footer";
-import SiteNav from "@/components/SiteNav";
-import { notes } from "@/data/notes";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { formatContentDate } from "@/data/content";
+import { noteCategories, publishedNotes } from "@/data/notes";
+import { getPublicNote } from "@/lib/public-notes";
+import NoteBody from "@/components/NoteBody";
 import { notFound } from "next/navigation";
-import type { ComponentType } from "react";
+import PageTransition from "@/components/PageTransition";
 
 type NotePageProps = {
   params: Promise<{
@@ -10,47 +14,42 @@ type NotePageProps = {
   }>;
 };
 
-const mdxNotes = {
-  "first-note": () => import("@/content/notes/first-note.mdx"),
-};
+export function generateStaticParams() {
+  return publishedNotes.map((note) => ({ slug: note.slug }));
+}
+
+export async function generateMetadata({ params }: NotePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const note = await getPublicNote(slug);
+  return { title: note ? `${note.title} | Marine Notes` : "文章未找到", description: note?.summary };
+}
 
 export default async function NoteDetailPage({ params }: NotePageProps) {
   const { slug } = await params;
-  const note = notes.find((item) => item.slug === slug);
+  const note = await getPublicNote(slug);
 
   if (!note) {
     notFound();
   }
 
-  const loadMdxNote = mdxNotes[slug as keyof typeof mdxNotes];
-  let MdxContent: ComponentType | null = null;
-
-  if (loadMdxNote) {
-    const imported = await loadMdxNote();
-    MdxContent = imported.default;
-  }
+  const MdxContent = note.source === "mdx" ? (await note.loadBody()).default : null;
 
   return (
-    <main>
-      <SiteNav />
-
-      <article className="note-page">
-        <p className="eyebrow">{note.date}</p>
+    <PageTransition>
+    <main className="page-main interior-page">
+      <article className="article-page">
+        <Link className="back-link" href="/notes">← 返回写作归档</Link>
+        <p className="overline">{noteCategories[note.category]} / <time dateTime={note.publishedAt}>{formatContentDate(note.publishedAt)}</time></p>
         <h1>{note.title}</h1>
-        <p className="intro">{note.summary}</p>
+        <p className="article-lead">{note.summary}</p>
+        {note.cover && <div className="article-cover"><Image src={note.cover.src} alt={note.cover.alt} width={note.cover.width || 1200} height={note.cover.height || 900} sizes="(max-width: 760px) 100vw, 1200px" /></div>}
 
-        <div className="note-body">
-          {MdxContent ? (
-            <MdxContent />
-          ) : (
-            note.content?.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))
-          )}
+        <div className="article-body">
+          {MdxContent ? <MdxContent /> : note.source === "sanity" ? <NoteBody body={note.body} /> : null}
         </div>
+        <div className="article-end"><span>END OF NOTE</span><Link href="/notes">继续翻阅 ↗</Link></div>
       </article>
-
-      <Footer />
     </main>
+    </PageTransition>
   );
 }

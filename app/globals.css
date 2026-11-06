@@ -105,14 +105,74 @@ a:hover {
   color: var(--text);
   white-space: nowrap;
 }
-
+.marine-mark-wrap {
+  position: relative;
+  width: 72px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  overflow: hidden;
+}
 .marine-mark {
   width: 72px;
   height: auto;
   color: var(--text);
   flex-shrink: 0;
 }
+.marine-mark-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -8% -4%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 252, 246, 0.08) 35%,
+    rgba(255, 252, 246, 0.42) 50%,
+    rgba(255, 252, 246, 0.08) 65%,
+    transparent 100%
+  );
+  transform: translateX(-135%);
+  animation: marine-mark-sheen 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.08s;
+}
+@keyframes marine-mark-reveal {
+  0% {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translateY(8px) scale(0.985);
+    clip-path: inset(0 100% 0 0);
+  }
 
+  55% {
+    opacity: 1;
+    filter: blur(1px);
+    transform: translateY(2px) scale(0.995);
+    clip-path: inset(0 18% 0 0);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes marine-mark-sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-135%);
+  }
+
+  20% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(135%);
+  }
+}
 .nav-links {
   display: flex;
   gap: 28px;

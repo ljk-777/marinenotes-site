@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#d7e7e4"/><stop offset="1" stop-color="#9ebebb"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="28" stdDeviation="22" flood-color="#3c6664" flood-opacity=".18"/></filter></defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="1050" cy="165" r="200" fill="#f7e7c2" opacity=".72"/>
+  <path d="M0 775c236-148 453-128 713-5 207 98 360 65 487-30" fill="none" stroke="#f2f4e9" stroke-width="3" opacity=".8"/>
+  <g filter="url(#s)"><rect x="112" y="116" width="976" height="651" rx="22" fill="#faf8f1"/><path d="M112 169h976" stroke="#d5d5c9" stroke-width="2"/><circle cx="146" cy="143" r="7" fill="#d8aa9a"/><circle cx="171" cy="143" r="7" fill="#ebd3a2"/><circle cx="196" cy="143" r="7" fill="#9cb9b1"/></g>
+  <text x="171" y="225" font-family="Georgia,serif" font-size="19" letter-spacing="4" fill="#425d5c">MARINE NOTES</text>
+  <path d="M171 258h858" stroke="#d8d8cc" stroke-width="2"/>
+  <text x="171" y="368" font-family="Georgia,serif" font-size="62" fill="#24302c">A place to keep growing.</text>
+  <path d="M171 420h430M171 443h390" stroke="#a9b7af" stroke-width="8" stroke-linecap="round"/>
+  <rect x="171" y="481" width="202" height="46" rx="23" fill="#678f8d"/>
+  <path d="M724 299c94-81 181-60 244-3 84 75 18 181-78 155-71-19-98-95-69-133" fill="none" stroke="#456f70" stroke-width="13" stroke-linecap="round"/>
+  <path d="M747 487c-36-92 35-189 132-186 94 3 136 98 109 159" fill="none" stroke="#d0aa80" stroke-width="9" stroke-linecap="round"/>
+  <path d="M171 609h858" stroke="#d8d8cc" stroke-width="2"/>
+  <rect x="171" y="644" width="250" height="77" rx="5" fill="#e2e9de"/><rect x="448" y="644" width="250" height="77" rx="5" fill="#f4e5d0"/><rect x="725" y="644" width="304" height="77" rx="5" fill="#dce8e9"/>
+</svg>

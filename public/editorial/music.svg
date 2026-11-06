@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+  <rect width="1200" height="900" fill="#e9e3d6"/><circle cx="998" cy="154" r="190" fill="#d7e5dc"/>
+  <path d="M95 540c134-96 279-130 416-71 194 82 251-83 394-43 84 23 116 75 194 62" fill="none" stroke="#95b0a8" stroke-width="3"/>
+  <g transform="translate(410 -4) rotate(29 300 450)"><rect x="560" y="-150" width="101" height="582" rx="42" fill="#9c7152"/><rect x="583" y="-150" width="54" height="600" rx="15" fill="#be926d"/><path d="M593-80v660m8-660v660m8-660v660m8-660v660m8-660v660m8-660v660" stroke="#eee7d4" stroke-width="2"/><path d="M419 346c-144-29-270 72-246 215 12 70 56 87 72 150 22 83 127 108 187 63 84-63 123-30 190-92 86-78 78-237-28-303-54-34-92-18-165-33Z" fill="#b98960" stroke="#7f5d48" stroke-width="7"/><path d="M437 394c-135-25-218 67-190 158 24 80 86 98 84 164 49 72 112 59 162 15 73-54 102-14 151-90 54-84 10-217-84-233-49-9-80 6-123-14Z" fill="#d5ad7d"/><circle cx="489" cy="549" r="57" fill="#5d493d"/><circle cx="489" cy="549" r="85" fill="none" stroke="#a67c59" stroke-width="5"/></g>
+  <path d="M107 180c83-63 168-32 244 16M104 232c99-42 165-9 226 29M110 290c85-27 145 8 195 54" fill="none" stroke="#72908b" stroke-width="5" stroke-linecap="round"/>
+  <text x="86" y="811" font-family="Georgia,serif" font-size="27" letter-spacing="8" fill="#55716c">A SONG IN PROGRESS</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" role="img">
+  <defs>
+    <linearGradient id="sea" x2="1" y2="1"><stop stop-color="#c6dbd7"/><stop offset="1" stop-color="#7a9f9e"/></linearGradient>
+    <linearGradient id="paper" x2="0" y2="1"><stop stop-color="#fffdf7"/><stop offset="1" stop-color="#eee7d9"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="24" stdDeviation="30" flood-color="#315258" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="1200" height="1100" fill="#dbe7df"/>
+  <circle cx="928" cy="258" r="216" fill="#f6e8c8" opacity=".92"/>
+  <path d="M0 720C190 595 327 660 515 737c188 77 388 54 685-138v501H0Z" fill="url(#sea)"/>
+  <path d="M0 820c184-87 342-57 513 24 199 95 427 19 687-96" fill="none" stroke="#f8f6ea" stroke-width="3" opacity=".65"/>
+  <g transform="translate(195 130) rotate(-8 365 410)" filter="url(#shadow)">
+    <rect width="748" height="814" rx="8" fill="url(#paper)"/>
+    <path d="M50 79h648M50 724h648" stroke="#c6c4b8" stroke-width="2"/>
+    <text x="58" y="121" font-family="Georgia,serif" font-size="25" letter-spacing="9" fill="#688889">MARINE NOTES</text>
+    <path d="M68 615C188 493 205 234 329 217c71-10-68 405-31 441 46 44 184-240 278-356 21-27-76 248-17 305 25 25 51 29 84 26" fill="none" stroke="#303934" stroke-width="11" stroke-linecap="round"/>
+    <path d="M366 567c82-114 187-162 285-150 74 10 91 79-13 101" fill="none" stroke="#688889" stroke-width="5" stroke-linecap="round"/>
+    <text x="58" y="773" font-family="Georgia,serif" font-size="22" letter-spacing="5" fill="#8d9689">A FIELD NOTE IN PROGRESS</text>
+  </g>
+  <circle cx="1030" cy="847" r="78" fill="#e9b994" opacity=".9"/>
+  <path d="M1003 840l21 21 40-54" fill="none" stroke="#fff8ec" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

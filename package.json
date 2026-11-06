@@ -11,11 +11,15 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@next/mdx": "^16.2.9",
+    "@next/mdx": "^16.4.5",
+    "@portabletext/react": "^4.0.3",
     "@types/mdx": "^2.0.14",
-    "next": "16.2.9",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "next": "^16.4.5",
+    "next-sanity": "^13.4.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sanity": "^6.22.0",
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -23,8 +27,13 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "^16.4.5",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@module-federation/dts-plugin": {
+      "undici": "7.30.2"
+    }
   }
 }

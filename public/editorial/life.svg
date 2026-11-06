@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+  <rect width="1200" height="900" fill="#dbe8e2"/>
+  <circle cx="1045" cy="165" r="137" fill="#f6dfaf"/>
+  <g transform="translate(74 124) rotate(-7 250 300)"><rect width="468" height="610" rx="12" fill="#f8f5ea"/><rect x="25" y="25" width="418" height="455" rx="4" fill="#83aaa4"/><path d="M25 400c88-103 175-80 255-43 65 30 112-5 163-82v205H25Z" fill="#426c70"/><path d="M38 365c80-92 177-130 285-100" fill="none" stroke="#e9eee5" stroke-width="5"/><text x="45" y="547" font-family="Georgia,serif" font-size="24" letter-spacing="6" fill="#496668">ON THE WAY</text></g>
+  <g transform="translate(488 205) rotate(10 275 265)"><rect width="560" height="530" rx="12" fill="#f8f5ea"/><rect x="26" y="26" width="508" height="375" rx="4" fill="#ece2d2"/><circle cx="285" cy="205" r="151" fill="#c66358"/><circle cx="285" cy="205" r="90" fill="none" stroke="#fff6e9" stroke-width="6"/><path d="M134 205h302M285 54v302" stroke="#fff6e9" stroke-width="5"/><text x="51" y="465" font-family="Georgia,serif" font-size="24" letter-spacing="6" fill="#84645d">MATCHDAY &amp; MUSIC</text></g>
+  <path d="M105 823c234-40 401 49 606 8 130-27 261-49 389-19" fill="none" stroke="#60827e" stroke-width="3"/>
+</svg>

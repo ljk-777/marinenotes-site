@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+  <rect width="1200" height="900" fill="#e8ded1"/>
+  <circle cx="970" cy="183" r="160" fill="#f2cfa4" opacity=".75"/>
+  <path d="M0 695c280-95 641-83 1200-174v379H0Z" fill="#8da69a"/><path d="M0 758c395-95 657-73 1200-160" fill="none" stroke="#e2ede1" stroke-width="5"/><path d="M598 650c-76 49-77 154-20 250M575 766c177-10 344-27 625-104" fill="none" stroke="#e2ede1" stroke-width="5"/>
+  <g transform="translate(174 163) rotate(-12 425 210)"><path d="M32 78c252 11 421 43 741-9l-22 245c-312 51-485 12-743-17Z" fill="#b94845"/><path d="M112 83 87 301M194 91l-28 216M585 87l15 218M665 79l13 223" stroke="#f1e7d4" stroke-width="27"/><path d="m27 290-20 83m70-72-14 84m65-77-5 83m64-81 2 81m502-91 4 85m55-96 15 80" stroke="#b94845" stroke-width="10" stroke-linecap="round"/></g>
+  <circle cx="923" cy="706" r="115" fill="#f6f3e9"/><path d="m923 648 55 44-20 63h-70l-20-63Z" fill="#7e9290"/><path d="m868 692-54-26m164 26 58-23m-148 86-45 55m115-55 47 55" stroke="#7e9290" stroke-width="8"/>
+  <text x="83" y="838" font-family="Georgia,serif" font-size="27" letter-spacing="8" fill="#3f5d56">A MATCH TO REMEMBER</text>
+</svg>

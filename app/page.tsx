@@ -1,163 +1,89 @@
-import Footer from "@/components/Footer";
-import SiteNav from "@/components/SiteNav";
-import NoteCard from "@/components/NoteCard";
-import { notes } from "@/data/notes";
+import Image from "next/image";
 import Link from "next/link";
-export default function Home() {
+import StoryGallery from "@/components/StoryGallery";
+import NoteCard from "@/components/NoteCard";
+import PageTransition from "@/components/PageTransition";
+import { publishedProjects } from "@/data/projects";
+import { listPublicNotes } from "@/lib/public-notes";
+
+export default async function Home() {
+  const featuredProject = publishedProjects[0];
+  const publishedNotes = await listPublicNotes();
+
   return (
-    <main>
-      <SiteNav />
-
-      <section className="hero hero-grid">
-        <div className="hero-copy">
-          <p className="eyebrow">Personal blog</p>
-          <h1>Marine Notes</h1>
-          <p className="intro">
-            A quiet place for notes on life, learning, and code.
-          </p>
-          <div className="hero-actions">
-            <Link className="button" href="/notes">
-              Read Notes
-            </Link>
-            <a
-              className="button button-secondary"
-              href="https://github.com/ljk-777"
-            >
-              Visit my GitHub
-            </a>
+    <PageTransition>
+    <main className="page-main">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="hero-words">
+          <p className="overline">A PERSONAL FIELD NOTES / 一本仍在写的笔记</p>
+          <h1 id="home-title">写下正在<br /><em>发生的事。</em></h1>
+          <p className="hero-description">我是 Marine，一个边学习、边制作、边记录的学生。这里有做过的项目，也有生活里不想忘记的片刻。</p>
+          <div className="hero-cta">
+            <Link className="pill-button" href="/projects">看看作品 <span aria-hidden="true">↗</span></Link>
+            <Link className="quiet-link" href="/notes">从文字开始 <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
-
-        <div className="hero-visual" aria-hidden="true">
-          <div className="orb orb-one" />
-          <div className="orb orb-two" />
-          <div className="glass-card">
-            <p className="glass-label">Current mood</p>
-            <p className="glass-title">soft focus, slow growth</p>
-            <p className="glass-text">
-              Building a space that feels thoughtful, clear, and quietly alive.
-            </p>
-          </div>
+        <div className="hero-art">
+          <Image src="/editorial/hero.svg" alt="纸页、海色弧线与日光组成的原创插画" width={1200} height={1100} priority />
+          <span className="hero-art-caption">NOTES FROM SOMEWHERE IN BETWEEN</span>
         </div>
+        <a className="scroll-cue" href="#chapters">继续向下 <span aria-hidden="true">↓</span></a>
       </section>
 
-      <section id="writing">
-        <h2>Notebook Themes</h2>
-        <div className="cards cards-four">
-          <article className="card">
-            <h3>Life</h3>
-            <p>Moments, reflections, and the ordinary things worth keeping.</p>
-          </article>
-          <article className="card">
-            <h3>Learning</h3>
-            <p>Course notes, questions, and traces of understanding.</p>
-          </article>
+      <StoryGallery />
 
-          <article className="card">
-            <h3>Code</h3>
-            <p>
-              Technical experiments, front-end practice, and building notes.
-            </p>
-          </article>
+      <section className="feature-section" aria-labelledby="project-title">
+        <div className="section-topline"><span>SELECTED WORK / 精选作品</span><span>{featuredProject ? `01 / ${featuredProject.phase}` : "即将更新"}</span></div>
+        <div className="feature-heading">
+          <h2 id="project-title" className="section-title">从一个自己的空间开始。</h2>
+          <Link className="arrow-link" href="/projects">所有作品 ↗</Link>
+        </div>
+        {featuredProject ? <Link className="project-feature" href={`/projects/${featuredProject.slug}`}>
+          <div className="project-feature-art" style={{ viewTransitionName: `project-cover-${featuredProject.slug}` }}>
+            <Image src={featuredProject.cover.src} alt={featuredProject.cover.alt} width={1200} height={900} />
+          </div>
+          <div className="project-feature-copy">
+            <p className="overline">{featuredProject.kicker}</p>
+            <h3>{featuredProject.title}</h3>
+            <p>{featuredProject.summary}</p>
+            <span className="arrow-link">阅读项目故事 ↗</span>
+          </div>
+        </Link> : <p className="archive-empty">作品故事还在整理中。</p>}
+      </section>
 
-          <article className="card">
-            <h3>Fragments</h3>
-            <p>Small ideas, unfinished thoughts, and pieces between pages.</p>
-          </article>
+      <section className="focus-section" aria-labelledby="focus-title">
+        <div>
+          <p className="overline">CURRENT FOCUS / 正在探索</p>
+          <h2 id="focus-title" className="section-title">学习，不只发生在完成之后。</h2>
+        </div>
+        <div className="focus-list">
+          <p><span>01</span> 如何让一个网站既能展示作品，也能保存真实的生活？</p>
+          <p><span>02</span> 图文与滚动如何帮助叙事，而不是打断阅读？</p>
+          <p><span>03</span> 怎样建立一套愿意长期使用的写作方式？</p>
         </div>
       </section>
 
-      <section className="notes-showcase">
-        <div className="featured-note">
-          <div className="section-heading">
-            <div>
-              <h2>Featured Note</h2>
-              <p className="section-copy">
-                A highlighted page from this evolving notebook.
-              </p>
-            </div>
-          </div>
-
-          <article className="feature-card">
-            <p className="note-date">{notes[0].date}</p>
-            <h3>
-              <a href={`/notes/${notes[0].slug}`}>{notes[0].title}</a>
-            </h3>
-            <p>{notes[0].summary}</p>
-            <a className="text-link" href={`/notes/${notes[0].slug}`}>
-              Open note
-            </a>
-          </article>
+      <section className="latest-section" aria-labelledby="latest-title">
+        <div className="section-topline"><span>RECENT WRITING / 最近写下</span><span>按时间收藏</span></div>
+        <div className="feature-heading">
+          <h2 id="latest-title" className="section-title">慢慢写，慢慢积累。</h2>
+          <Link className="arrow-link" href="/notes">打开归档 ↗</Link>
         </div>
-
-        <div className="notes-preview">
-          <div className="section-heading">
-            <div>
-              <h2>Recent Notes</h2>
-              <p className="section-copy">
-                Recent entries from life, learning, and small technical paths.
-              </p>
-            </div>
-          </div>
-
-          <div className="notes-list compact-notes">
-            {notes.slice(0, 2).map((note) => (
-              <NoteCard
-                key={note.slug}
-                slug={note.slug}
-                date={note.date}
-                title={note.title}
-                summary={note.summary}
-              />
-            ))}
-          </div>
+        <div className="editorial-list">
+          {publishedNotes.slice(0, 3).map((note) => <NoteCard key={note.slug} note={note} />)}
         </div>
       </section>
 
-      <section className="split-grid">
-        <article className="info-panel">
-          <p className="eyebrow">Currently learning</p>
-          <h2>What I am exploring now</h2>
-          <p>
-            I am moving deeper into front-end structure, interface design, and
-            the small systems behind thoughtful digital experiences.
-          </p>
-        </article>
-
-        <article className="info-panel">
-          <p className="eyebrow">Small fragments</p>
-          <h2>What this space is for</h2>
-          <p>
-            Not only polished results, but drafts, notes, experiments, and the
-            quiet process of becoming clearer over time.
-          </p>
-        </article>
+      <section className="life-teaser" aria-labelledby="life-title">
+        <div>
+          <p className="overline">OFF THE PAGE / 生活的一角</p>
+          <h2 id="life-title" className="section-title">球场、琴弦、沿途。</h2>
+          <p>除了项目与代码，也想留下支持利物浦的热情、喜欢的音乐和那些值得回看的路途。</p>
+          <Link className="arrow-link" href="/life">进入生活手帖 ↗</Link>
+        </div>
+        <Image src="/editorial/life.svg" alt="足球、吉他和旅途元素组成的原创插画" width={1200} height={900} />
       </section>
-
-      <section className="bottom-info">
-        <article className="info-panel">
-          <p className="eyebrow">About</p>
-          <h2>A calm place to keep growing</h2>
-          <p>
-            I&apos;m Marine, a student learning by building. Marine Notes is my
-            corner of the internet for writing, thinking, and documenting growth
-            in a way that feels personal and calm.
-          </p>
-        </article>
-
-        <article className="info-panel">
-          <p className="eyebrow">Contact</p>
-          <h2>Elsewhere</h2>
-          <p>
-            GitHub: <a href="https://github.com/ljk-777">ljk-777</a>
-          </p>
-          <p>
-            Email: <a href="mailto:ljk21202@gmail.com">ljk21202@gmail.com</a>
-          </p>
-        </article>
-      </section>
-
-      <Footer />
     </main>
+    </PageTransition>
   );
 }
