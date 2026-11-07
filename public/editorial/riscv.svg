@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" fill="#dce8e6"/>
+  <path d="M0 170h412l128 126h121l126-126h413M0 730h412l128-126h121l126 126h413M120 0v288l190 168h188M1080 0v288L890 456H702M120 900V612l190-168h188M1080 900V612L890 444H702" stroke="#658d88" stroke-width="4" opacity=".65"/>
+  <path d="M0 450h1200M600 0v900" stroke="#658d88" stroke-width="2" opacity=".28"/>
+  <rect x="362" y="236" width="476" height="428" rx="32" fill="#355b59"/>
+  <rect x="403" y="277" width="394" height="346" rx="12" stroke="#c9ddcd" stroke-width="2"/>
+  <path d="M483 504V354h71l49 75-49 75h-71Zm117 0 61-150h54l-61 150h-54Z" fill="#e9c79a"/>
+  <path d="M435 328h330M435 572h330" stroke="#c9ddcd" stroke-width="2" opacity=".45"/>
+  <circle cx="120" cy="288" r="13" fill="#d19f7b"/><circle cx="1080" cy="612" r="13" fill="#d19f7b"/>
+  <text x="85" y="188" fill="#294441" font-family="Georgia,serif" font-size="83">RISC-V</text>
+  <text x="86" y="808" fill="#466d68" font-family="sans-serif" font-size="23" letter-spacing="7">RISC-V SOC / VERIFIED BUILD</text>
+</svg>

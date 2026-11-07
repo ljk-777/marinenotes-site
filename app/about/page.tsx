@@ -16,11 +16,12 @@ export default function AboutPage() {
         <div className="about-copy">
           <p className="overline">ABOUT / 关于</p>
           <h1>你好，我是 Marine。</h1>
-          <p className="about-lead">一个还在学习的学生，也是在为自己搭建空间的人。</p>
-          <p>我喜欢把想法做成能用的页面，也喜欢把生活写下来。Marine Notes 因此不只是作品集：它既记录制作过程，也收纳足球、音乐和路上的记忆。</p>
-          <p>这里会不断改变。新的项目、读过的东西、喜欢的比赛或歌曲，都可能成为下一页。</p>
+          <p className="about-lead">一个还在学习的学生。做项目，写笔记，也认真支持利物浦。</p>
+          <p>我用 Marine 这个名字记录自己做过的东西：从搭建这座网站，到参与旅行规划项目 Waylog、Minecraft 战斗智能体研究和 RISC-V SoC。仓库已经公开，个人负责的模块与复盘还会继续补充。</p>
+          <p>我也喜欢吉他、歌曲和旅行。它们不是作品集之外的附录，而是我生活里同样重要的部分。这里会随着真实的新项目、新文字和新记忆慢慢变化。</p>
           <div className="about-links">
             <Link className="pill-button" href="/projects">浏览作品 ↗</Link>
+            <Link className="quiet-link" href="/life">看看生活 ↗</Link>
             <a className="quiet-link" href="https://github.com/ljk-777" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </div>
         </div>

@@ -8,8 +8,8 @@ const stories = [
   {
     number: "01",
     label: "WORK / 作品",
-    title: "把想法做成可以触摸的页面。",
-    body: "从 Marine Notes 开始，记录一个作品如何从问题、草图走到真正上线。这里展示完成的部分，也诚实留下仍在改进的地方。",
+    title: "从 Marine Notes，到 Waylog。",
+    body: "我从一个自己的网页开始，继续参与旅行规划、Minecraft 战斗智能体和 RISC-V 处理器项目。每个项目都能走进真实的代码仓库，也会说明哪些成果属于团队。",
     href: "/projects",
     link: "走进作品",
     image: "/editorial/project.svg",
@@ -18,8 +18,8 @@ const stories = [
   {
     number: "02",
     label: "WRITING / 写作",
-    title: "让每一段思考有时间坐标。",
-    body: "生活随笔、学习记录与技术札记，按日期慢慢累积。不必每篇都完整成熟，但每篇都是真实发生过的思考。",
+    title: "项目之外，我还想留下文字。",
+    body: "学习记录、技术札记和生活随笔都会按日期收进这里。比起写一份漂亮的结论，我更想记住自己当时怎么想。",
     href: "/notes",
     link: "翻阅笔记",
     image: "/editorial/writing.svg",
@@ -28,11 +28,12 @@ const stories = [
   {
     number: "03",
     label: "LIFE / 生活",
-    title: "球场、琴弦，以及路上的光。",
-    body: "足球和利物浦、喜欢的歌曲、练习吉他的时刻，还有想记住的旅行。它们不是网站的边角料，也是我生活的一部分。",
+    title: "我也会为一场比赛停下来。",
+    body: "利物浦、吉他、喜欢的歌和想重走的路，不是作品页的装饰。它们和代码一样，是认识我的另一种方式。",
     href: "/life",
     link: "看看生活",
-    image: "/editorial/life.svg",
+    image: "/editorial/liverpool-parade-2019.jpg",
+    credit: "Eric The Fish / CC BY 2.0",
     theme: "life",
   },
 ] as const;
@@ -59,8 +60,8 @@ export default function StoryGallery() {
 
   return (
     <section className="story-section" id="chapters" aria-labelledby="story-title">
-      <div className="section-topline"><span>CHAPTERS / 章节</span><span>01 — 03</span></div>
-      <h2 id="story-title" className="section-title">一个空间，几种打开方式。</h2>
+      <div className="section-topline"><span>THREE SIDES OF ME / 我的三个侧面</span><span>01 — 03</span></div>
+      <h2 id="story-title" className="section-title">做东西、写下来、认真生活。</h2>
       <div className="story-layout">
         <div className={`story-stage story-stage--${stories[active].theme}`} aria-hidden="true">
           {stories.map((story, index) => (
@@ -69,8 +70,8 @@ export default function StoryGallery() {
               key={story.number}
               src={story.image}
               alt=""
-              width={1200}
-              height={900}
+              width={story.theme === "life" ? 1280 : 1200}
+              height={story.theme === "life" ? 854 : 900}
               priority={index === 0}
             />
           ))}
@@ -86,11 +87,12 @@ export default function StoryGallery() {
             >
               <span className="story-number">{story.number} / {story.label}</span>
               <div className={`story-mobile-image story-stage--${story.theme}`}>
-                <Image src={story.image} alt="原创章节插画" width={1200} height={900} />
+                <Image src={story.image} alt={story.theme === "life" ? "利物浦 2019 年欧冠夺冠游行" : "原创章节插画"} width={story.theme === "life" ? 1280 : 1200} height={story.theme === "life" ? 854 : 900} />
               </div>
               <h3>{story.title}</h3>
               <p>{story.body}</p>
               <Link className="arrow-link" href={story.href}>{story.link}<span aria-hidden="true"> ↗</span></Link>
+              {"credit" in story && <span className="story-photo-credit">游行资料照片，非本人拍摄 · <a href="https://commons.wikimedia.org/wiki/File:LFC_Parade_2019_01.jpg" target="_blank" rel="noopener noreferrer">Eric The Fish / 来源</a> · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a> · 缩放使用</span>}
             </article>
           ))}
         </div>

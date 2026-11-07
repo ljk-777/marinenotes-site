@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" fill="#dce8df"/>
+  <path d="M0 665c233-250 423-104 607-347C793 72 986 145 1200 25M-82 798C164 553 394 681 628 432c225-238 397-117 674-256M-62 891c263-166 494-73 739-304 217-204 383-139 600-242" stroke="#f8f5eb" stroke-width="70" opacity=".78"/>
+  <path d="M-20 713c255-254 438-97 633-349C821 94 993 181 1245 59M-20 832c273-184 502-78 733-316 236-242 392-118 535-196" stroke="#7ea59c" stroke-width="2" opacity=".75"/>
+  <circle cx="665" cy="422" r="268" fill="#436f6b"/>
+  <circle cx="665" cy="422" r="214" stroke="#bed5c8" stroke-width="2" opacity=".65"/>
+  <ellipse cx="665" cy="422" rx="112" ry="268" stroke="#bed5c8" stroke-width="2" opacity=".65"/>
+  <path d="M399 422h532M437 308h456M437 536h456" stroke="#bed5c8" stroke-width="2" opacity=".55"/>
+  <path d="M507 543c55-130 119-153 170-177 62-30 91-72 129-126" stroke="#f0d4a5" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 20"/>
+  <circle cx="506" cy="545" r="18" fill="#f0d4a5"/><circle cx="807" cy="239" r="18" fill="#f0d4a5"/>
+  <circle cx="807" cy="239" r="39" stroke="#f0d4a5" stroke-width="2"/>
+  <rect x="88" y="93" width="179" height="39" rx="19.5" fill="#f8f5eb" opacity=".86"/>
+  <text x="108" y="119" fill="#436f6b" font-family="Georgia,serif" font-size="20" letter-spacing="4">WAYLOG</text>
+  <text x="87" y="790" fill="#294441" font-family="Georgia,serif" font-size="86" font-style="italic">a way to wander.</text>
+</svg>

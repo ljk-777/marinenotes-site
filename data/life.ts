@@ -20,13 +20,15 @@ export const lifeTopics: {
   title: string;
   description: string;
   cover: CoverImage;
+  credit?: { label: string; href: string };
 }[] = [
   {
     number: "01",
     label: "FOOTBALL / 足球",
     title: "跟着利物浦，记住那些比赛日。",
-    description: "我喜欢足球，也支持利物浦。这里会记录让我记得很久的比赛、球员和看球时的心情，而不是一份赛事新闻表。",
-    cover: { src: "/editorial/football.svg", alt: "红色围巾与足球场线条的原创插画" },
+    description: "我喜欢足球，也支持利物浦。2019 年夺冠游行的这张画面，先替这里留下一抹红。以后想写的，是我自己看过的比赛、记住的球员和当时的心情。",
+    cover: { src: "/editorial/liverpool-parade-2019.jpg", alt: "利物浦球员在 2019 年欧冠夺冠游行中庆祝", width: 1280, height: 854 },
+    credit: { label: "Eric The Fish / 来源", href: "https://commons.wikimedia.org/wiki/File:LFC_Parade_2019_01.jpg" },
   },
   {
     number: "02",

@@ -16,13 +16,16 @@ export default function LifePage() {
     <main className="page-main interior-page">
       <section className="page-intro">
         <p className="overline">LIFE / 生活手帖</p>
-        <h1>认真记录，也认真生活。</h1>
-        <p>球场、琴弦、喜欢的歌曲和路途。这里先收下兴趣，具体的故事会随着真实的照片与文字慢慢长出来。</p>
+        <h1>除了代码，<br />还有比赛日。</h1>
+        <p>我是支持利物浦的球迷，也喜欢吉他、歌曲和旅行。这里先留下兴趣的线索；真正属于我的比赛与路途记忆，会继续按日期写下来。</p>
       </section>
       <div className="life-stories">
         {lifeTopics.map((interest) => (
           <section className="life-story" key={interest.number}>
-            <div className="life-story-art"><Image src={interest.cover.src} alt={interest.cover.alt} width={1200} height={900} /></div>
+            <figure className="life-story-art">
+              <Image src={interest.cover.src} alt={interest.cover.alt} width={interest.cover.width ?? 1200} height={interest.cover.height ?? 900} />
+              {interest.credit && <figcaption>2019 欧冠夺冠游行 · 资料照片，非本人拍摄。<a href={interest.credit.href} target="_blank" rel="noopener noreferrer">{interest.credit.label}</a> · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a> · 缩放使用</figcaption>}
+            </figure>
             <div className="life-story-copy">
               <span className="overline">{interest.number} / {interest.label}</span>
               <h2>{interest.title}</h2>
@@ -54,9 +57,13 @@ export default function LifePage() {
       </section>
       <section className="life-bridge">
         <span className="overline">MEMORIES / 记忆</span>
-        <h2>真正的相册，需要真正的照片。</h2>
-        <p>这里暂时用原创插画表达主题；之后加入自己的照片与文字，让记录慢慢长出来。</p>
-        <Link className="arrow-link" href="/notes">先去读一篇笔记 ↗</Link>
+        <h2>照片可以借来，记忆要自己写。</h2>
+        <p>这张克洛普在 2019 年夺冠游行中的照片，是给未来比赛笔记的一处起点。我的照片和故事，会等真实发生后再放进来。</p>
+        <figure className="life-memory-photo">
+          <Image src="/editorial/klopp-parade-2019.jpg" alt="克洛普在 2019 年利物浦欧冠夺冠游行中向球迷挥手" width={1280} height={853} />
+          <figcaption>资料照片，非本人拍摄 · <a href="https://commons.wikimedia.org/wiki/File:Jurgen_Klopp_LFC_Parade_2019.jpg" target="_blank" rel="noopener noreferrer">Pete / 来源</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0</a> · 缩放使用</figcaption>
+        </figure>
+        <Link className="arrow-link" href="/notes">去读我的笔记 ↗</Link>
       </section>
     </main>
     </PageTransition>

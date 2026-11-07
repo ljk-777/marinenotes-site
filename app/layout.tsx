@@ -5,8 +5,8 @@ import "./globals.css";
 import "./editorial.css";
 
 export const metadata: Metadata = {
-  title: "Marine Notes | 写下正在发生的事",
-  description: "记录学习、创造与生活的个人空间。",
+  title: "Marine Notes | Marine 的项目与生活笔记",
+  description: "Marine 的个人网站：项目、学习记录、利物浦、音乐与路上的片刻。",
 };
 
 export default function RootLayout({
