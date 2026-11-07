@@ -15,7 +15,7 @@ export const projectType = defineType({
     defineField({ name: "role", title: "我负责什么", description: "协作项目请只填写自己实际做过的部分。", type: "text", rows: 2, validation: (rule) => rule.required() }),
     defineField({ name: "stack", title: "使用技术", type: "array", of: [defineArrayMember({ type: "string" })], options: { layout: "tags" }, validation: (rule) => rule.required().min(1) }),
     defineField({ name: "tags", title: "标签", type: "array", of: [defineArrayMember({ type: "string" })], options: { layout: "tags" } }),
-    defineField({ name: "spotlight", title: "放在正在深入的栏目", type: "boolean", initialValue: false }),
+    defineField({ name: "spotlight", title: "放在正在深入的栏目", description: "留空时，已有项目沿用原来的展示位置。", type: "boolean" }),
     defineField({ name: "cover", title: "项目封面", type: "image", options: { hotspot: true }, fields: [defineField({ name: "alt", title: "图片说明", type: "string", validation: (rule) => rule.required() })], validation: (rule) => rule.required().assetRequired() }),
     defineField({ name: "gallery", title: "项目图片 / 截图", type: "array", of: [defineArrayMember({ type: "image", options: { hotspot: true }, fields: [defineField({ name: "alt", title: "图片说明", type: "string", validation: (rule) => rule.required() }), defineField({ name: "caption", title: "图注", type: "string" })] })] }),
     defineField({ name: "links", title: "相关链接", type: "array", of: [defineArrayMember({ type: "object", fields: [defineField({ name: "label", title: "显示文字", type: "string", validation: (rule) => rule.required() }), defineField({ name: "href", title: "网址", type: "url", validation: (rule) => rule.required().uri({ scheme: ["https", "http"] }) })] })] }),

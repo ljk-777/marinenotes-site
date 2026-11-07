@@ -37,7 +37,7 @@ const imageFields = `"src": asset->url, "alt": alt, "width": asset->metadata.dim
 const projectFields = `
   "slug": slug.current, title, summary, category, publishedAt, kicker, phase, role,
   "stack": coalesce(stack, []), "tags": coalesce(tags, []),
-  "spotlight": coalesce(spotlight, false),
+  spotlight,
   "cover": select(defined(cover.asset) => {${imageFields}}),
   "gallery": coalesce(gallery[defined(asset)]{${imageFields}, caption}, []),
   "links": coalesce(links[]{label, href}, []),
@@ -74,7 +74,7 @@ function toProject(item: SanityProject): PublicProject | null {
     links: Array.isArray(item.links) ? item.links.filter((link) => link?.label && /^https?:\/\//.test(link.href)) : [],
     sections: item.sections.filter((section) => section?.title && section?.body),
     gallery: Array.isArray(item.gallery) ? item.gallery.filter((image) => image?.src && image?.alt) : [],
-    spotlight: item.spotlight === true, source: "sanity",
+    spotlight: typeof item.spotlight === "boolean" ? item.spotlight : undefined, source: "sanity",
   };
 }
 
