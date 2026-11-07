@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageTransition from "@/components/PageTransition";
+import NoteBody from "@/components/NoteBody";
 import { formatContentDate } from "@/data/content";
-import { getPublishedLifeEntry, lifeCategories, publishedLifeEntries } from "@/data/life";
+import { lifeCategories, publishedLifeEntries } from "@/data/life";
+import { getPublicLifeEntry } from "@/lib/public-content";
 
 type LifeEntryPageProps = { params: Promise<{ slug: string }> };
 
@@ -14,13 +16,13 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: LifeEntryPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const entry = getPublishedLifeEntry(slug);
+  const entry = await getPublicLifeEntry(slug);
   return { title: entry ? `${entry.title} | Marine Notes` : "记录未找到", description: entry?.summary };
 }
 
 export default async function LifeEntryPage({ params }: LifeEntryPageProps) {
   const { slug } = await params;
-  const entry = getPublishedLifeEntry(slug);
+  const entry = await getPublicLifeEntry(slug);
   if (!entry) notFound();
 
   return (
@@ -31,9 +33,9 @@ export default async function LifeEntryPage({ params }: LifeEntryPageProps) {
           <p className="overline">{lifeCategories[entry.category]} / <time dateTime={entry.publishedAt}>{formatContentDate(entry.publishedAt)}</time></p>
           <h1>{entry.title}</h1>
           <p className="article-lead">{entry.summary}</p>
-          {entry.cover && <div className="article-cover"><Image src={entry.cover.src} alt={entry.cover.alt} width={1200} height={900} /></div>}
+          {entry.cover && <div className="article-cover"><Image src={entry.cover.src} alt={entry.cover.alt} width={entry.cover.width || 1200} height={entry.cover.height || 900} sizes="(max-width: 760px) 100vw, 1200px" /></div>}
           <div className="article-body">
-            {entry.body.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            {entry.source === "sanity" ? <NoteBody body={entry.body} /> : entry.body.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
           </div>
           <div className="article-end"><span>END OF MEMORY</span><Link href="/life">继续翻阅 ↗</Link></div>
         </article>

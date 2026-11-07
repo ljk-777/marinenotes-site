@@ -3,14 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
 import { formatContentDate } from "@/data/content";
-import { lifeCategories, lifeTopics, publishedLifeEntries } from "@/data/life";
+import { lifeCategories, lifeTopics } from "@/data/life";
+import { listPublicLifeEntries } from "@/lib/public-content";
 
 export const metadata: Metadata = {
   title: "生活手帖 | Marine Notes",
   description: "足球、吉他、歌曲和路上的记忆。",
 };
 
-export default function LifePage() {
+export default async function LifePage() {
+  const publishedLifeEntries = await listPublicLifeEntries();
   return (
     <PageTransition>
     <main className="page-main interior-page">
@@ -40,13 +42,14 @@ export default function LifePage() {
         {publishedLifeEntries.length ? (
           <div className="memory-list">
             {publishedLifeEntries.map((entry) => (
-              <Link className="memory-entry" href={`/life/${entry.slug}`} key={entry.slug}>
+              <Link className={`memory-entry${entry.cover ? " has-cover" : ""}`} href={`/life/${entry.slug}`} key={entry.slug}>
                 <time dateTime={entry.publishedAt}>{formatContentDate(entry.publishedAt)}</time>
                 <div>
                   <span>{lifeCategories[entry.category]}</span>
                   <h3>{entry.title}</h3>
                   <p>{entry.summary}</p>
                 </div>
+                {entry.cover && <Image className="memory-entry-cover" src={entry.cover.src} alt={entry.cover.alt} width={entry.cover.width || 320} height={entry.cover.height || 240} sizes="(max-width: 700px) 88px, 150px" />}
                 <span aria-hidden="true">↗</span>
               </Link>
             ))}

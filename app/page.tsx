@@ -3,12 +3,13 @@ import Link from "next/link";
 import StoryGallery from "@/components/StoryGallery";
 import NoteCard from "@/components/NoteCard";
 import PageTransition from "@/components/PageTransition";
-import { activeProjects, publishedProjects } from "@/data/projects";
+import { listPublicProjects } from "@/lib/public-content";
 import { listPublicNotes } from "@/lib/public-notes";
 
 export default async function Home() {
-  const featuredProject = publishedProjects[0];
-  const publishedNotes = await listPublicNotes();
+  const [publishedProjects, publishedNotes] = await Promise.all([listPublicProjects(), listPublicNotes()]);
+  const activeProjects = publishedProjects.filter((project) => project.spotlight ?? (project.slug === "minecombat" || project.slug === "riscv-minisys"));
+  const featuredProject = publishedProjects.find((project) => project.slug === "waylog") || publishedProjects[0];
 
   return (
     <PageTransition>

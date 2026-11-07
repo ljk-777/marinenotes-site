@@ -235,6 +235,10 @@ body::before {
 .project-story section { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 25px 0 !important; border-bottom: 1px solid var(--rule) !important; }
 .project-story h2 { margin: 0; font-size: 1.65rem; font-weight: 500; }
 .project-story p { margin: 0; line-height: 1.9; }
+.project-gallery { display: grid; gap: 42px; max-width: 920px; margin: 65px auto 0; }
+.project-gallery figure { margin: 0; }
+.project-gallery img { display: block; width: 100%; height: auto; border-radius: 18px; }
+.project-gallery figcaption { margin-top: 12px; color: var(--quiet); font-size: .81rem; line-height: 1.6; }
 .project-next { display: grid; grid-template-columns: 1fr auto 25px; gap: 20px; align-items: center; max-width: 820px; margin: 90px auto 0; padding: 25px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); color: var(--ink); }
 .project-next > span:first-child { color: var(--sea); font-size: .76rem; font-weight: 700; letter-spacing: .1em; }
 .project-next strong { font-family: var(--display); font-size: clamp(1.6rem, 2.7vw, 2.6rem); font-weight: 500; }
@@ -257,6 +261,8 @@ body::before {
 .life-archive .section-title { margin-bottom: 36px; }
 .life-archive-empty { max-width: 600px; padding: 24px 0 0; line-height: 1.9; }
 .memory-entry { display: grid; grid-template-columns: 180px 1fr 28px; gap: 28px; padding: 28px 0; border-top: 1px solid var(--rule); color: var(--ink); }
+.memory-entry.has-cover { grid-template-columns: 180px minmax(0, 1fr) 150px 28px; }
+.memory-entry-cover { width: 150px; height: 112px; object-fit: cover; border-radius: 12px; }
 .memory-entry:last-child { border-bottom: 1px solid var(--rule); }
 .memory-entry time, .memory-entry div > span { color: var(--sea); font-size: .82rem; font-weight: 700; }
 .memory-entry h3 { margin: 8px 0; font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 500; }
@@ -366,7 +372,9 @@ body::before {
   .life-story { grid-template-columns: 1fr; gap: 26px; padding: 42px 0 !important; }
   .life-story:nth-child(even) .life-story-art { order: 0; }
   .memory-entry { grid-template-columns: 1fr 28px; gap: 12px; }
+  .memory-entry.has-cover { grid-template-columns: minmax(0, 1fr) 88px 28px; }
   .memory-entry time { grid-column: 1 / -1; }
+  .memory-entry-cover { width: 88px; height: 88px; }
   .project-facts { grid-template-columns: 1fr; gap: 18px; }
   .project-story section { grid-template-columns: 1fr; gap: 14px; }
   .article-page .back-link, .project-detail .back-link { margin-bottom: 45px; }
